@@ -1,22 +1,29 @@
-import logo from './logo.svg';
+
 import './App.css';
+import React from 'react';
+import { useState } from 'react';
+import userContext from './context/UserContext';
+import GastoMes from './components/GastosMes';
+import AgregarGasto from './components/AgregarGasto';
+import Contador from './components/Contador';
 
 function App() {
+
+  const [ gastos , setGastos] =useState ([1500, 300, 400])
+
+  const userData = {
+    user: [gastos, setGastos]
+  }
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <userContext.Provider value={userData}>
+        <GastoMes/>
+        <AgregarGasto/>
+        <Contador/>  
+      </userContext.Provider>  
+
       </header>
     </div>
   );
