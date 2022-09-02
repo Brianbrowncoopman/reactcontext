@@ -1,30 +1,28 @@
-
-import './App.css';
 import React from 'react';
-import { useState } from 'react';
-import userContext from './context/UserContext';
-import GastoMes from './components/GastosMes';
-import AgregarGasto from './components/AgregarGasto';
-import Contador from './components/Contador';
+import './App.css';
+import {  useState } from 'react';
+import UserContext from './Context/UserContext';
+import GastoMes from './Components/GastosMes';
+import AgregarGasto from './Components/AgregarGasto';
+import Contador from './Components/Contador';
 
 function App() {
 
-  const [ gastos , setGastos] =useState ([1500, 300, 400])
+  const [ gastos , setGastos ] = useState ([1500,300,400])
 
   const userData = {
     user: [gastos, setGastos]
   }
-
   return (
     <div className="App">
       <header className="App-header">
-      <userContext.Provider value={userData}>
-        <GastoMes/>
-        <AgregarGasto/>
-        <Contador/>  
-      </userContext.Provider>  
-
+        <UserContext.Provider value= {userData}>
+          <GastoMes />
+          <AgregarGasto />
+          <Contador />
+      </UserContext.Provider>
       </header>
+      
     </div>
   );
 }

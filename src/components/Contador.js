@@ -1,6 +1,5 @@
-
 import { useContext } from "react"
-import userContext from "../context/UserContext";
+import userContext from "./Context/UserContext";
 
 function Contador () {
 
